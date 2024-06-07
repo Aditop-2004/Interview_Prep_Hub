@@ -5,11 +5,12 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const jwtSecret = process.env.JWT_SECREAT_KEY;
 
-async function registerUser(request, response) {
+async function signup(request, response) {
   try {
     const { name, email, password, profile_pic, otp } = request.body;
 
     // Check if all required fields are provided
+    console.log("KI HAAL CHAAL");
     if (!name || !email || !password || !otp) {
       return response.status(403).json({
         success: false,
@@ -18,6 +19,7 @@ async function registerUser(request, response) {
     }
 
     // Check if the user already exists
+    console.log("Chalo ab chalne lga");
     const checkEmail = await UserModel.findOne({ email });
     if (checkEmail) {
       return response.status(400).json({
@@ -64,6 +66,7 @@ async function registerUser(request, response) {
     });
 
   } catch (error) {
+    console.log("KI HOGE");
     return response.status(500).json({
       message: error.message || error,
       error: true,
@@ -71,4 +74,4 @@ async function registerUser(request, response) {
   }
 }
 
-module.exports = registerUser;
+module.exports = signup;

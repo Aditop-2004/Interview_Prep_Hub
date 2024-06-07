@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Homepage = () => {
   const navigate = useNavigate();
   const handleSignUpClick = () => {
-    navigate('/email');
+    navigate('/register');
   };
   return (
     <>
