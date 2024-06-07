@@ -5,8 +5,14 @@ import uploadFile from "../helpers/uploadFile";
 import axios from "axios";
 import toast from "react-hot-toast";
 import image from "./hello.png"; // Make sure this path is correct
-
+import { useDispatch } from "react-redux";
+// import {toast} from '@chakra-ui/react';
+import { setSignupData } from "../redux/userSlice";
+import { sendOtp } from "../services/operations/authAPI";
 const RegisterPage = () => {
+  const dispatch=useDispatch();
+  // const toast=useToast();
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -43,8 +49,34 @@ const RegisterPage = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
-    e.stopPropagation()
-
+    // e.stopPropagation()
+    const {name,email,password,profile_pic}=data;
+    if(!name || !email || !password){
+      toast({
+        title: 'Fill in the details',
+        description: 'Lack of info',
+        status: 'warning',
+        duration: 4000,
+        isClosable: true,
+        position: 'bottom',
+      });
+      return;
+    }
+    const signupData = {
+      ...data,
+    };
+    console.log(signupData)
+    // Setting signup data to state
+    // To be used after otp verification
+    dispatch(setSignupData(signupData));
+    // Send OTP to user for verification
+    dispatch(sendOtp(data.email, navigate));
+    // Reset
+    setData({
+      name: '',
+      email: '',
+      password: '',
+    });
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/register`
 
     try {

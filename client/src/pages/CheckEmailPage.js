@@ -102,6 +102,11 @@ const CheckEmailPage = () => {
               Register
             </Link>
           </p>
+          <p className="my-3 text-center">
+            <Link to={"/forgot-password"} className="hover:text-primary font-semibold">
+                Forget Password
+            </Link>
+          </p>
         </div>
       </div>
     </div>

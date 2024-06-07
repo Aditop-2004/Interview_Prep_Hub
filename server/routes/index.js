@@ -1,5 +1,5 @@
 const express = require('express')
-const registerUser = require('../controller/registerUser')
+const signup = require('../controller/registerUser')
 const checkEmail = require('../controller/checkEmail')
 const checkPassword = require('../controller/checkPassword')
 const userDetails = require('../controller/userDetails')
@@ -8,15 +8,13 @@ const updateUserDetails = require('../controller/updateUserDetails')
 const searchUser = require('../controller/searchUser')
 const {resetPasswordToken,resetPassword} = require("../controller/ResetPassword.js")
 const { auth } = require("../middlewares/auth-middleware.js");
-const {login,
-    signup,
+const {
     sendotp,
-    changePassword,
-    googleAuth} = require("../controller/Authentication/authControllers.js")
+    changePassword,} = require("../controller/Authentication/authControllers.js")
 const router = express.Router()
 
 //create user api
-router.post('/register',registerUser)
+router.post('/register',signup)
 // //check user email
 router.post('/email',checkEmail)
 // //check user password
@@ -29,8 +27,6 @@ router.get('/logout',logout)
 router.post('/update-user',updateUserDetails)
 //search user
 router.post("/search-user",searchUser)
-
-
 
 router.post("/sendotp", sendotp)
 
