@@ -24,6 +24,18 @@ const userSchema =  new mongoose.Schema({
     resetPasswordExpires: {
         type: Date,
       },
+      areaOfInterest:{
+        type : String,
+        default : "Not Provided"
+    },
+    achievements:{
+        type : String,
+        default : "Not Provided"
+    },
+    rating:{
+        type:Number,
+        default:3.5
+    }
 },{
     timestamps : true
 })

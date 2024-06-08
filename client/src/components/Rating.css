@@ -1,0 +1,16 @@
+.rating-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .star-icon {
+    color: gold;
+    font-size: 1.5rem; /* Adjust size if needed */
+    margin-right: 0.2rem; /* Add some space between stars */
+  }
+  .star-icon2 {
+    color: gold;
+    font-size: 1.8rem; /* Adjust size if needed */
+    margin-right: 0.2rem; /* Add some space between stars */
+  }
+  

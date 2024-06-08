@@ -7,3 +7,11 @@
 .scrollbar::-webkit-scrollbar-thumb{
   @apply bg-slate-200 rounded-full
 }
+
+input[type=radio]{
+  display:none;
+}
+
+.star{
+  cursor: pointer;
+}
