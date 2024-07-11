@@ -1,6 +1,12 @@
+Video Link : https://www.youtube.com/watch?v=9IjC1hiEOrE
+
+
 InterviewPrepHub
 
 Welcome to InterviewPrepHub, an interactive platform designed to enhance your interview skills through realistic mock interview practices. This repository contains the source code and documentation for the project.
+
+
+
 
 Introduction
 
